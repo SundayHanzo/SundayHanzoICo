@@ -12,4 +12,8 @@ public class GamePlayView : MonoBehaviour {
 	void Update () {
 	
 	}
+
+	public void showArrowInInitializePosition(GameObject arrowObject){
+		arrowObject.transform.position = new Vector3 (0, 0, 0);
+	}
 }
