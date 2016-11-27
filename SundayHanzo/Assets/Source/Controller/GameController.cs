@@ -3,14 +3,7 @@ using System.Collections;
 using UnityEngine.UI;
 
 public class GameController : MonoBehaviour {
-	private static GameController sharedInstance = null;
-
-	public static GameController getInstance(){
-		if (sharedInstance == null) {
-			sharedInstance = new GameController ();
-		}
-		return sharedInstance;
-	}
+	public static SchemeController schemeController;
 
 	public GameObject[] ArrowPrefab;
 	public GamePlayView gamePlayView;
@@ -20,6 +13,7 @@ public class GameController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		SchemeController.gameController = this;
 		showArrow ();
 
 	}
@@ -44,5 +38,6 @@ public class GameController : MonoBehaviour {
 		}
 		Arrow arrowSource = nowArrow.GetComponent<Arrow> ();
 		arrowSource.fire ();
+		schemeController.ShowMoveCamera ();
 	}
 }
