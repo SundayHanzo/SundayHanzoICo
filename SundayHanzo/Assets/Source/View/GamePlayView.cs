@@ -14,6 +14,7 @@ public class GamePlayView : MonoBehaviour {
 	}
 
 	public void showArrowInInitializePosition(GameObject arrowObject){
-		arrowObject.transform.position = new Vector3 (0, 0, 0);
+//		arrowObject.transform.position = new Vector3 (0, 0, 0);
+		arrowObject.SetActive(true);
 	}
 }

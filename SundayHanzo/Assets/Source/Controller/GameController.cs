@@ -8,6 +8,7 @@ public class GameController : MonoBehaviour {
 	public GameObject[] ArrowPrefab;
 	public GamePlayView gamePlayView;
 	private GameObject nowArrow = null;
+	public GameObject ARCameraObject;
 
 
 
@@ -29,6 +30,9 @@ public class GameController : MonoBehaviour {
 			nowArrow = null;
 		}
 		nowArrow = Object.Instantiate (ArrowPrefab [0]);
+		nowArrow.transform.parent = ARCameraObject.transform;
+		nowArrow.transform.position = ArrowPrefab [0].transform.position;
+		nowArrow.transform.rotation = ArrowPrefab [0].transform.rotation;
 		gamePlayView.showArrowInInitializePosition (nowArrow);
 	}
 
@@ -37,7 +41,8 @@ public class GameController : MonoBehaviour {
 			Debug.Log ("Now Arrow is not setting yet");
 		}
 		Arrow arrowSource = nowArrow.GetComponent<Arrow> ();
-		arrowSource.fire ();
+		Quaternion arCameraRotation = ARCameraObject.transform.rotation;
+		arrowSource.fire (arCameraRotation);
 		schemeController.ShowMoveCamera ();
 	}
 }

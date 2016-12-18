@@ -33,12 +33,13 @@ public class SchemeController : MonoBehaviour {
 
 	public void ChangeToGameScene(){
 		SceneManager.LoadScene ("GameScene");
-		TurnOnWebCam ();
+		//TurnOnWebCam ();
 	}
 
 	public void ShowMoveCamera(){
 		traceCamera.SetActive(true);
 	}
+	/*
 	public void TurnOnWebCam(){
 
 		if (planeOB != null) {
@@ -48,4 +49,5 @@ public class SchemeController : MonoBehaviour {
 			camTexture.Play ();
 		}
 	}
+	*/
 }
